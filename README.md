@@ -121,18 +121,18 @@ Below is a simplified diagram representing the microservice architecture:
 
 ```
                         +-----------------------+
-                        |     Gateway Service    |  (Port: 8080)
+                        |     Gateway Service   |  (Port: 8080)
                         +-----------------------+
                                    |
                 +-------------------+-------------------+
                 |                                       |
 +---------------v--------------+          +-------------v-------------+
-|    Auth Service              |          |      Payment Service     |
-|       Service (8081)         |          |         (8082)           |
-+------------------------------+          +--------------------------+
+|        Auth Service          |          |      Payment Service      |
+|       Service (8081)         |          |         (8082)            |
++------------------------------+          +---------------------------+
                                    
                         +-----------------------+
-                        |     Registry Service     |  (Port: 8761)
+                        |   Registry Service    |  (Port: 8761)
                         +-----------------------+
 ```
 
