@@ -123,7 +123,7 @@ Below is a simplified diagram representing the microservice architecture:
                         +-----------------------+
                         |     Gateway Service   |  (Port: 8080)
                         +-----------------------+
-                                   |
+                                    |
                 +-------------------+-------------------+
                 |                                       |
 +---------------v--------------+          +-------------v-------------+
