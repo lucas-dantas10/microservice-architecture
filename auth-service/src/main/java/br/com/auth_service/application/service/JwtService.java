@@ -15,14 +15,14 @@ public class JwtService implements IJwtService {
 
     private final JwtEncoder encoder;
 
+    private final static long EXPIRES_AT = 3600L;
+    private final static Instant NOW = Instant.now();
+
     public JwtService(JwtEncoder encoder) {
         this.encoder = encoder;
     }
 
     public String generateToken(User user) {
-        Instant now = Instant.now();
-        long expiresAt = 3600L;
-
         String scopes = user.getRoles()
                 .stream()
                 .map(role -> role.getName().name())
@@ -30,8 +30,8 @@ public class JwtService implements IJwtService {
 
         var claims = JwtClaimsSet.builder()
                 .issuer("auth-service-jwt")
-                .issuedAt(now)
-                .expiresAt(now.plusSeconds(expiresAt))
+                .issuedAt(NOW)
+                .expiresAt(NOW.plusSeconds(EXPIRES_AT))
                 .subject(user.getUsername())
                 .claim("scope", scopes)
                 .build();

@@ -29,14 +29,14 @@ public class AuthenticationService implements IAuthenticationService {
     public String authenticate(LoginUserDto loginUserDto) {
         Optional<User> user = userService.findByEmail(loginUserDto.email());
 
-        if (user.isEmpty() || !isLoginCorrect(loginUserDto, user.get())) {
+        if (user.isEmpty() || !isPasswordCorrect(loginUserDto, user.get())) {
             throw new NotFoundException("User not found!");
         }
 
         return jwtService.generateToken(user.get());
     }
 
-    private boolean isLoginCorrect(LoginUserDto loginUserDto, User user) {
+    private boolean isPasswordCorrect(LoginUserDto loginUserDto, User user) {
         return bCryptPasswordEncoder.matches(loginUserDto.password(), user.getPassword());
     }
 }
