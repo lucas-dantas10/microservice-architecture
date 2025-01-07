@@ -7,11 +7,23 @@ spring:
         locator:
           lower-case-service-id: true
           enabled: true
+  h2:
+    console:
+      enabled: false
 server:
   port: 8080
+jwt:
+  public:
+    key: classpath:app.pub
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
       default-zone: http://localhost:8761
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http: DEBUG
+
