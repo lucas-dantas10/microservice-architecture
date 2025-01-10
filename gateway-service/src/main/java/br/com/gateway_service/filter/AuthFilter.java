@@ -18,6 +18,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
 
     private final Logger log = Logger.getLogger(this.getClass().getName());
     private final static int HIGH_PRIORITY = -1;
+    private final static String BEARER = "Bearer %s";
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -28,7 +29,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
 
             if (!requestPath.equals("/auth-service/login")) {
                 exchange.getRequest().mutate()
-                        .header(HttpHeaders.AUTHORIZATION, "Bearer " + exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION))
+                        .header(HttpHeaders.AUTHORIZATION, String.format(BEARER, exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION)))
                         .build();
             }
         } catch (Exception exception) {
