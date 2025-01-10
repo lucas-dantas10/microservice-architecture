@@ -51,10 +51,13 @@ The following technologies are used to build the microservices:
 - **Spring Cloud Eureka**: Service discovery and registration
 - **Spring Cloud Gateway**: API Gateway for routing requests
 - **Spring Security**: Security for authentication and authorization
+- **Spring Actuator**: Provides production-ready features like metrics, health checks, and monitoring
 - **JWT (JSON Web Token)**: Token-based authentication
 - **Docker**: Containerization for microservices
 - **Maven**: Build and dependency management
 - **PostgreSQL**: Relational database for persistent storage
+- **Prometheus**: Open-source monitoring and alerting toolkit, used for collecting and querying metrics from your microservices
+- **Grafana**: Open-source data visualization tool, used to create dashboards and visualize metrics collected by Prometheus
 
 ---
 
