@@ -23,7 +23,21 @@ eureka:
       default-zone: http://localhost:8761
 logging:
   level:
+    io.micrometer: DEBUG
     org.springframework.web: DEBUG
     org.springframework.cloud.gateway: DEBUG
     reactor.netty.http: DEBUG
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    prometheus:
+      access: unrestricted
+    health:
+      show-details: always
+  prometheus:
+    metrics:
+      export:
+        enabled: true
